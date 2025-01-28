@@ -14,7 +14,7 @@ const { href } = Astro.props;
 		display: flex;
 		place-content: center;
 		text-align: center;
-		padding: 0.5em 1em;
+		padding: 0.8em 1.5em;
 		gap: 0.5em;
 		color: var(--accent-text-over);
 		text-decoration: none;
@@ -24,11 +24,13 @@ const { href } = Astro.props;
 		background: var(--gradient-accent-orange);
 		box-shadow: var(--shadow-md);
 		white-space: nowrap;
+		font-size: var(--text-md);
 	}
 
 	@media (min-width: 20em) {
 		a {
 			font-size: var(--text-lg);
+			width: 100%;
 		}
 	}
 
@@ -51,6 +53,7 @@ const { href } = Astro.props;
 		a {
 			padding: 1rem 2.5rem;
 			font-size: var(--text-md);
+			width: auto;
 		}
 	}
 </style>

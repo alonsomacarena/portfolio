@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import type {iconPaths} from '../components/IconPaths'
-
+import { projects } from '../data/projects';
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -10,85 +10,64 @@ import CallToAction from '../components/CallToAction.astro';
 import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
+//import Skills from '../components/Skills.astro';
+//import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 
 // Page section components
 import ContactCTA from '../components/ContactCTA.astro';
-import Skills from '../components/Skills.astro';
 
-// Content Fetching: List four most recent work projects
-const projects = (await getCollection('work'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
+// Order and limit the projects
+const featuredProjects = projects
+  .sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime())
+  .slice(0, 4);
 
-const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
-	{ label: 'GitHub', href: 'https://github.com/alonsomacarena', icon: 'github-logo' },
-	{ label: 'Behance', href: 'https://behance.net/alonsomacarena', icon: 'behance-logo' },
-	{ label: 'Linkedin', href: 'https://linkedin.com/in/alonsomacarena', icon: 'linkedin-logo'}
-];
 ---
 
 <BaseLayout>
 	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					title="Macarena Sofía Alonso Arias"
-					tagline="Frontend Developer - Madrid, España"
-					align="start"
-				>
-					<div class="roles">
-						<div class="socials">
-							{
-								iconLinks.map(({ href, icon, label }) => (
-									<a href={href} class="social">
-										<span class="sr-only">{label}</span>
-										<Icon icon={icon} />
-									</a>
-								))
-							}
-						</div>
-					</div>
-				</Hero>
-				<ContactCTA />
-			</header>
-
-			<Skills />
-		</div>
-
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Trabajos Destacados</h3>
-					<p>Aquí hay algunos de mis trabajos más recientes y destacados para diferentes clientes</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-
-				<div class="cta">
-					<CallToAction href="/trabajos/">
-						Ver Todos
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
-
-		</main>
-
+	  <div class="wrapper stack gap-8 lg:gap-20">
+		<header class="hero">
+		  <Hero
+			title="Macarena Sofía Alonso Arias"
+			tagline="Frontend Developer - Madrid, España"
+			align="start"
+		  >
+			<div class="roles">
+			  <div class="socials"></div>
+			</div>
+		  </Hero>
+		  <ContactCTA />
+		</header>
+	  </div>
+  
+	  <main class="wrapper stack gap-20 lg:gap-48">
+		<section class="section with-background with-cta">
+		  <header class="section-header stack gap-2 lg:gap-4">
+			<h3>Proyectos Destacados</h3>
+			<p>Aquí hay algunos de mis proyectos más recientes y destacados para diferentes clientes</p>
+		  </header>
+		  <div class="gallery">
+			<Grid variant="offset">
+			  {featuredProjects.map((project) => (
+				<li>
+				  <PortfolioPreview project={project} />
+				</li>
+			  ))}
+			</Grid>
+		  </div>
+  
+		  <div class="cta">
+			<CallToAction href="/proyectos/">
+			  Ver Todos
+			  <Icon icon="arrow-right" size="1.2em" />
+			</CallToAction>
+		  </div>
+		</section>
 		<ContactCTA />
+	  </main>
 	</div>
-</BaseLayout>
+  </BaseLayout>
 
 <style>
 	.hero {
@@ -114,7 +93,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		.hero {
 			display: grid;
 			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
+			padding-inline: 2.5rem 0;
 			gap: 3.75rem;
 		}
 
@@ -175,7 +154,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 	}
 
 	.section-header h3 {
-		font-size: var(--text-2xl);
+		font-size: var(--text-xl);
 	}
 
 	@media (min-width: 50em) {
@@ -183,6 +162,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			grid-template-columns: repeat(4, 1fr);
 			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
 			gap: 5rem;
+			padding-inline: 2.5rem;
 		}
 
 		.section.with-cta {

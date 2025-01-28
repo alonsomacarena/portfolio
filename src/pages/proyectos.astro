@@ -1,0 +1,38 @@
+---
+// src/pages/proyectos.astro
+import { projects } from '../data/projects';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import Hero from '../components/Hero.astro';
+import Grid from '../components/Grid.astro';
+
+// Ordenar los proyectos por fecha de publicación (de más reciente a más antiguo)
+const sortedProjects = projects.sort(
+  (a, b) => b.publishDate.getTime() - a.publishDate.getTime()
+);
+---
+
+<BaseLayout
+  title="Mis proyectos destacados - Macarena Alonso"
+  description="Mis proyectos más destacados para diferentes clientes"
+>
+  <div class="stack gap-20">
+    <main class="wrapper stack gap-8">
+      <Hero
+        title="My Work"
+        tagline="See my most recent projects below to get an idea of my past experience."
+        align="start"
+      />
+      <Grid variant="offset">
+        {sortedProjects.map((project) => (
+          <li>
+            <PortfolioPreview project={project} />
+          </li>
+        ))}
+      </Grid>
+    </main>
+    <ContactCTA />
+  </div>
+</BaseLayout>
