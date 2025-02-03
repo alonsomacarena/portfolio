@@ -1,0 +1,117 @@
+---
+import { projects } from "../../data/projects";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import Hero from "../../components/Hero.astro";
+import Icon from '../../components/Icon.astro';
+
+// Generar las rutas estáticas para cada proyecto
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+// Obtener los parámetros dinámicos
+const { project } = Astro.props;
+
+if (!project) {
+  throw new Error(`Proyecto con id "${Astro.params.id}" no encontrado.`);
+}
+---
+
+<BaseLayout title={project.title}>
+    <div class="stack gap-20 lg:gap-48">
+        <div class="wrapper stack gap-8 lg:gap-20">
+            <header class="hero">
+                <a class="back-link" href="/proyectos/"><Icon icon="arrow-left" /> Proyectos</a>
+                <Hero
+                    title={project.title}
+                    align="start"
+                    class="hero-row"
+                >
+                    <div class="skills">
+                        {project.skills.map(skill => (
+                            <li class="skill">{skill}</li>
+                        ))}
+                    </div>
+                </Hero>
+                <p class="description">{project.description}</p>     
+              </header>
+        </div>
+  </div>
+  <main class="wrapper stack gap-20 lg:gap-48">
+    <article class="project">
+      <img src={project.img_mockup} alt={project.img_alt || project.title} loading="lazy" decoding="async" />
+
+      <!-- <section class="details">
+        <h2>Tecnologías utilizadas</h2>
+        <ul>
+          {project.skills.map(skill => (
+            <li class="skill">{skill}</li>
+          ))}
+        </ul>
+      </section> -->
+
+      <!-- {project.url && (
+        <p>
+          <a href={project.url} target="_blank" rel="noopener noreferrer">Ver proyecto en línea</a>
+        </p>
+      )} -->
+    </article>
+
+    <ContactCTA />
+  </main>
+</BaseLayout>
+
+<style>
+    .hero {
+		width: 90%;
+		margin: auto;
+	}
+    .skills{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        list-style: none;
+        margin-top: 10px;
+    }
+    .skill{
+        font-size: var(--text-base);
+        background: var(--gradient-accent);
+        color: var(--accent-text-over);
+        padding: 0.5rem 1rem;
+        border-radius: 999rem;
+        transition: color var(--theme-transition), background-color var(--theme-transition);
+    }
+    .description{
+        font-size: var(--text-md);
+        margin: 40px auto;
+        text-align: left;
+    }
+    .project{
+        width: 90%;
+        margin: auto;
+        text-align: center;
+    }
+    .project img{
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 50em) {
+        .skills{
+            margin-top: 0;
+        }
+        .project img{
+            width: 50%;
+            max-width: 50%;
+        }
+    }
+
+</style>

@@ -75,6 +75,8 @@ const featuredProjects = projects
 		flex-direction: column;
 		align-items: center;
 		gap: 2rem;
+		width: 95%;
+		margin: auto;
 	}
 
 	.roles {
@@ -157,6 +159,15 @@ const featuredProjects = projects
 		font-size: var(--text-xl);
 	}
 
+	.section li{
+		margin: auto;
+		width: 95%;
+	}
+
+	.wrapper{
+		padding-inline: 0;
+	}
+
 	@media (min-width: 50em) {
 		.section {
 			grid-template-columns: repeat(4, 1fr);
@@ -181,6 +192,7 @@ const featuredProjects = projects
 		.with-cta .section-header {
 			justify-self: flex-start;
 			text-align: left;
+			padding-left: 1.5rem;
 		}
 
 		.gallery {
@@ -189,6 +201,8 @@ const featuredProjects = projects
 
 		.cta {
 			grid-area: cta;
+			margin-right: 1rem;
+
 		}
 	}
 

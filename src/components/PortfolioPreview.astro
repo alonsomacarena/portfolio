@@ -11,17 +11,17 @@ interface Props {
   };
 }
 
-const { id, title, skills, img, img_alt } = Astro.props.project;
+const { project } = Astro.props;
 ---
 
-<a class="card" href={`/proyectos/${id}`}>
-  <span class="title">{title}</span>
+<a class="card" href={`/proyectos/${project.id}`}>
+  <span class="title">{project.title}</span>
   <div class="skills">
-    {skills.map((skill) => (
+    {project.skills.map((skill) => (
       <span class="skill">{skill}</span>
     ))}
   </div>
-  <img src={img} alt={img_alt || ''} loading="lazy" decoding="async" />
+  <img src={project.img} alt={project.img_alt || ''} loading="lazy" decoding="async" />
 </a>
 
 <style>
