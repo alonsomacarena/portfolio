@@ -33,15 +33,19 @@ const featuredProjects = projects
 			tagline="Frontend Developer - Madrid, España"
 			align="start"
 		  >
-			<div class="roles">
-			  <div class="socials"></div>
+			<div class="skills">
+				<span class="skill">React JS</span>
+				<span class="skill">HTML</span>
+				<span class="skill">CSS</span>
+				<span class="skill">Javascript</span>
+				<span class="skill">Astro</span>
 			</div>
 		  </Hero>
 		  <ContactCTA />
 		</header>
 	  </div>
   
-	  <main class="wrapper stack gap-20 lg:gap-48">
+	  <main class="wrapper stack gap-20 lg:gap20">
 		<section class="section with-background with-cta">
 		  <header class="section-header stack gap-2 lg:gap-4">
 			<h3>Proyectos Destacados</h3>
@@ -64,7 +68,9 @@ const featuredProjects = projects
 			</CallToAction>
 		  </div>
 		</section>
-		<ContactCTA />
+		<div class="cta_bottom">
+			<ContactCTA />
+		</div>
 	  </main>
 	</div>
   </BaseLayout>
@@ -91,6 +97,25 @@ const featuredProjects = projects
 		box-shadow: var(--shadow-md);
 	}
 
+	.skills{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        list-style: none;
+        margin-top: 10px;
+    }
+    .skill{
+        font-size: var(--text-base);
+        background: var(--gradient-accent);
+        color: var(--accent-text-over);
+        padding: 0.5rem 1rem;
+        border-radius: 999rem;
+        transition: color var(--theme-transition), background-color var(--theme-transition);
+    }
+
 	@media (min-width: 50em) {
 		.hero {
 			display: grid;
@@ -109,6 +134,10 @@ const featuredProjects = projects
 			aspect-ratio: 3 / 4;
 			border-radius: 4.5rem;
 			object-fit: cover;
+		}
+
+		.skills{
+			justify-content: flex-start;
 		}
 	}
 
@@ -168,6 +197,15 @@ const featuredProjects = projects
 		padding-inline: 0;
 	}
 
+	.cta_bottom{
+		align-self: center;
+	}
+
+	.cta{
+		width: 55%;
+		margin: auto;
+	}
+
 	@media (min-width: 50em) {
 		.section {
 			grid-template-columns: repeat(4, 1fr);
@@ -202,7 +240,7 @@ const featuredProjects = projects
 		.cta {
 			grid-area: cta;
 			margin-right: 1rem;
-
+			width: 100%;
 		}
 	}
 

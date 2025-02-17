@@ -26,6 +26,13 @@ const sortedProjects = projects.sort(
           tagline="Aquí hay algunos de mis proyectos más recientes y destacados para diferentes clientes"
           align="start"
         />
+		<div class="skills-header">
+			<span class="skill-header">React JS</span>
+			<span class="skill-header">HTML</span>
+			<span class="skill-header">CSS</span>
+			<span class="skill-header">Javascript</span>
+			<span class="skill-header">Astro</span>
+		</div>
       </header>
     </div>
       <main class="wrapper stack gap-20">
@@ -40,7 +47,9 @@ const sortedProjects = projects.sort(
             </Grid>
           </div>
         </section>
-      <ContactCTA />
+		<div class="cta_bottom">
+			<ContactCTA />
+		</div>
     </main>
   </div>
 </BaseLayout>
@@ -49,7 +58,7 @@ const sortedProjects = projects.sort(
 	.hero {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-start;
 		gap: 2rem;
 		width: 95%;
 		margin: auto;
@@ -67,13 +76,18 @@ const sortedProjects = projects.sort(
 		box-shadow: var(--shadow-md);
 	}
 
+	.cta_bottom{
+		align-self: center;
+		width: 100%;
+	}
+
 	@media (min-width: 50em) {
-		.hero {
+		/* .hero {
 			display: grid;
 			grid-template-columns: 6fr 4fr;
 			padding-inline: 2.5rem 0;
 			gap: 3.75rem;
-		}
+		} */
 
 		.roles {
 			margin-top: 0.5rem;
@@ -95,10 +109,10 @@ const sortedProjects = projects.sort(
 		gap: 2rem;
 	}
 
-  .section li{
-    margin: auto;
-    width: 98%;
-  }
+	.section li{
+		margin: auto;
+		width: 98%;
+	}
 
 	.with-background {
 		position: relative;
@@ -140,11 +154,29 @@ const sortedProjects = projects.sort(
 		font-size: var(--text-xl);
 	}
 
-  .wrapper{
-    padding-inline: 0;
-	width: 95%;
-	margin: auto;
-  }
+	.wrapper{
+		padding-inline: 0;
+		width: 95%;
+		margin: auto;
+	}
+
+	.skills-header{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        list-style: none;
+    }
+    .skill-header{
+        font-size: var(--text-base);
+        background: var(--gradient-accent);
+        color: var(--accent-text-over);
+        padding: 0.5rem 1rem;
+        border-radius: 999rem;
+        transition: color var(--theme-transition), background-color var(--theme-transition);
+    }
 
 	@media (min-width: 50em) {
 		.section {
@@ -178,6 +210,10 @@ const sortedProjects = projects.sort(
 
 		.cta {
 			grid-area: cta;
+		}
+
+		.skill-header{
+			justify-content: flex-start;
 		}
 	}
 
