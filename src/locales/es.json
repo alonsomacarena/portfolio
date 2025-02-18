@@ -1,0 +1,212 @@
+{
+    "projects": [
+        {
+            "id": "canal-hispanidad",
+            "title": "Canal Hispanidad",
+            "description": "Canal Hispanidad es una plataforma dedicada a la compra y alquiler de documentales y películas producidas por Lopez-Li Film. El proyecto fue desarrollado utilizando React, aprovechando su sistema de componentes reutilizables para garantizar una experiencia de usuario fluida. Además, se implementaron tecnologías como VideoJs para la reproducción de videos, Stripe para el procesamiento de pagos y MedusaJs como solución de backend para gestionar productos y pagos. La plataforma está optimizada para ofrecer una navegación intuitiva y un proceso de compra rápido.",
+            "img": "/assets/hispanidad/hispanidad.png",
+            "img_alt": "Canal Hispanidad",
+            "img_mockup": "/assets/hispanidad/hispanidad-mockup.png",
+            "skills": [
+                "ReactJs",
+                "VideoJs",
+                "Stripe",
+                "MedusaJs"
+            ],
+            "url": "https://canalhispanidad.com/",
+            "publishDate": "new Date('2024-11-11')"
+        },
+        {
+            "id": "movistar-argentina",
+            "title": "Movistar Argentina",
+            "description": "Para Movistar Argentina, creé una página web orientada a captar leads y generar ventas de servicios de internet y móvil. Usé HTML, CSS y JavaScript para desarrollar un diseño optimizado para la conversión. Los formularios son fáciles de completar, y la experiencia está pensada para que los usuarios puedan encontrar lo que buscan rápidamente.",
+            "img": "/assets/movistar-argentina/movistar-argentina.png",
+            "img_alt": "Movistar Argentina",
+            "img_mockup": "/assets/movistar-argentina/movistar-argentina-mockup.png",
+            " skills": [
+                "HTML",
+                "CSS",
+                "Javascript"
+            ],
+            "url": "https://movistarinternet.ar/p/td",
+            "publishDate": "new Date('2024-10-10')"
+        },
+        {
+            "id": "mapa-de-aguas",
+            "title": "Mapa de Aguas",
+            "description": "Mapa de Aguas es un sitio informativo creado para Javier Domínguez Angulo, escritor y diseñador de paisajes. El sitio consta de varias páginas donde los usuarios pueden conocer su trayectoria, explorar sus proyectos y acceder a información sobre su filosofía y su obra. El sitio está desarrollado con HTML, CSS y JavaScript, con un formulario de contacto implementado en PHP para facilitar la comunicación directa.",
+            "img": "/assets/mapa/mapa.png",
+            "img_alt": "Mapa de Aguas",
+            "img_mockup": "/assets/mapa/mapa-mockup.png",
+            "skills": [
+                "HTML",
+                "CSS",
+                "Javascript",
+                "PHP"
+            ],
+            "url": "https://www.mapadeaguas.com/",
+            "publishDate": "new Date('2024-09-09')"
+        },
+        {
+            "id": "claro-costa-rica",
+            "title": "Claro Costa Rica",
+            "description": "En este proyecto para Claro Costa Rica, desarrollé una página web orientada a la venta de planes móviles y servicios de internet. A través de varias páginas, los usuarios pueden comparar las opciones disponibles, obtener detalles sobre los planes y enviar sus datos a través de formularios. El sitio fue realizado con HTML, CSS y JavaScript, con un diseño limpio que facilita la navegación y la conversión de usuarios en leads.",
+            "img": "/assets/claro/claro.png",
+            "img_alt": "Claro Costa Rica",
+            "img_mockup": "/assets/claro/claro-mockup.png",
+            "skills": [
+                "HTML",
+                "CSS",
+                "Javascript"
+            ],
+            "url": "https://claroplanes.cr/p/preview",
+            "publishDate": "new Date('2024-08-08')"
+        },
+        {
+            "id": "movistar-chile",
+            "title": "Movistar Chile",
+            "description": "El sitio web para Movistar Chile está diseñado para captar leads y fomentar la venta de planes móviles y servicios de hogar. El sitio incluye varias páginas con comparativas de planes, formularios de registro y llamadas a la acción claras para facilitar la conversión. Usé HTML, CSS y JavaScript para desarrollar un sitio rápido y funcional, ofreciendo una interfaz clara y accesible en dispositivos móviles y desktop.",
+            "img": "/assets/movistar-chile/movistar-chile.png",
+            "img_alt": "Movistar Chile",
+            "img_mockup": "/assets/movistar-chile/movistar-chile-mockup.png",
+            "skills": [
+                "HTML",
+                "CSS",
+                "Javascript"
+            ],
+            "url": "https://movistar-planes.cl/p/movil2",
+            "publishDate": "new Date('2024-07-07')"
+        },
+        {
+            "id": "wow-peru",
+            "title": "Wow Perú",
+            "description": "El sitio web para Wow Perú está orientado a la captación de leads para planes móviles y servicios de internet. Los usuarios pueden explorar los planes disponibles y enviar sus datos mediante formularios. Utilicé HTML, CSS y JavaScript para desarrollar un sitio que facilita la navegación y el envío de datos.",
+            "img": "/assets/wow-peru/wow-peru.png",
+            "img_alt": "Wow Perú",
+            "img_mockup": "/assets/wow-peru/wow-peru-mockup.png",
+            "skills": [
+                "HTML",
+                "CSS",
+                "Javascript"
+            ],
+            "url": "https://wowplanes.pe/p/td",
+            "publishDate": "new Date('2024-06-06')"
+        }
+    ],
+    "about": {
+        "title": "Sobre Mí",
+        "tagline": "Soy desarrolladora frontend con pasión por el diseño de interfaces y la experiencia de usuario (UX/UI). Con una sólida base en HTML, CSS, JavaScript y con experiencia en React JS, me considero detallista, creativa y con una fuerte capacidad para comunicarme con equipos interdisciplinarios.",
+        "experience": "Experiencia Profesional",
+        "education": "Formación",
+        "skills": "Habilidades",
+        "experiences": [
+            {
+                "title": "Frontend Developer",
+                "company": "Freelance, España",
+                "duration": "Agosto 2024 - Actualidad",
+                "details": [
+                    "Desarrollo de web de streaming y compra/alquiler de películas para Lopez-Li Films utilizando ReactJs con Vite, Redux, React-Router-Dom.",
+                    "Integración con la API de MedusaJs para el ecommerce e integración con la API de Stripe para los pagos.",
+                    "Utilización de VideoJs para reproducción de películas.",
+                    "Utilización de Axios para llamadas API y Jwt-Decode.",
+                    "Utilización de EsLint en VSCode para debug."
+                ]
+            },
+            {
+                "title": "Frontend Developer",
+                "company": "Convertia, España",
+                "duration": "Agosto 2022 - Actualidad",
+                "details": [
+                    "Desarrollo de sitios web en HTML, CSS y Javascript.",
+                    "Desarrollo de Emails en HTML.",
+                    "Desarrollo de Contenido de SEO para los sitios web.",
+                    "Optimizaciones y mejoras en sitios ya desarrollados.",
+                    "Utilización de GIT y/o plataforma de CRM."
+                ]
+            },
+            {
+                "title": "Frontend Developer",
+                "company": "Wunderman Thompson, Argentina",
+                "duration": "Enero 2021 - Mayo 2022",
+                "details": [
+                    "Desarrollo y Producción de Banners Animados en HTML, CSS y JS en diferentes medidas según pedido cliente.",
+                    "Desarrollo y Producción de Banners Animados en Adobe Animate en diferentes medidas según el cliente.",
+                    "Edición y Actualización de diseños en Adobe Photoshop.",
+                    "Edición y Actualización de Emails Comps en Adobe Photoshop y Sketch.",
+                    "Manejo de Uhub/Jira"
+                ]
+            },
+            {
+                "title": "Tutor Curso Desarrollo Web",
+                "company": "Coderhouse, Argentina",
+                "duration": "Octubre 2020 - Febrero 2021",
+                "details": [
+                    "Corrección de desafíos por clase y, pre entregas del Proyecto Final.",
+                    "Apoyo, seguimiento, asesoramiento y resolución de consultas de los alumnos a diario.",
+                    "Búsqueda de materiales extra y desarrollo de ejemplos de cada tema del programa."
+                ]
+            },
+            {
+                "title": "Diseñador Web",
+                "company": "Wunderman Thompson, Argentina",
+                "duration": "Octubre 2020 - Diciembre 2022",
+                "details": [
+                    "Desarrollo de Creatividades en Adobe Illustrator según las medidas pedidas por el cliente.",
+                    "Animado de los Banners en Adobe Animate.",
+                    "Edición y Actualización de Banners estáticos en Illustrator y animados en Animate.",
+                    "Manejo de Uhub/Jira , FileZilla y Paquete Adobe."
+                ]
+            }
+        ],
+        "educations": [
+            {
+                "title": "Curso de SEO y Posicionamiento en Google",
+                "place": "Udemy (2023)"
+            },
+            {
+                "title": "Curso Desarrollo de Aplicaciones React Native",
+                "place": "Coderhouse (2021)"
+            },
+            {
+                "title": "Curso React JS",
+                "place": "Coderhouse (2020)"
+            },
+            {
+                "title": "Curso Javascript + JQuery",
+                "place": "Coderhouse (2020)"
+            },
+            {
+                "title": "Curso Desarrollo Web (HTML5,CSS, SASS, Bootstrap",
+                "place": "Coderhouse (2020)"
+            }
+        ],
+        "skill": [
+            "React JS",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Astro",
+            "SASS",
+            "Adobe Photoshop",
+            "Adobe Illustrator",
+            "Adobe XD",
+            "Figma"
+        ]
+    },
+    "inicio": {
+        "tagline": "Frontend Developer - Madrid, España",
+        "projects": {
+            "title": "Proyectos Destacados",
+            "text": "Aquí hay algunos de mis proyectos más recientes y destacados para diferentes clientes"
+        },
+        "btnVer": "Ver Todos"
+    },
+    "projectsFull": {
+        "title": "Mis Proyectos",
+        "tagline": "Aquí hay algunos de mis proyectos más recientes y destacados para diferentes clientes"
+    },
+    "projectsId": {
+        "btnBack": "Proyectos",
+        "btnVer": "Ver proyecto en línea"
+    }
+}
