@@ -6,13 +6,14 @@ import Hero from '../components/Hero.astro';
 ---
 
 <BaseLayout title="Sobre Mí | Macarena Sofía Alonso Arias" description="Acerca de Macarena Sofía Alonso Arias">
-	<div class="stack gap-20">
+	<div class="stack gap-10 lg:gap-20">
+		<Hero
+			title="Sobre Mí"
+			tagline="Soy desarrolladora frontend con pasión por el diseño de interfaces y la experiencia de usuario (UX/UI). Con una sólida base en HTML, CSS, JavaScript y con experiencia en React JS, me considero detallista, creativa y con una fuerte capacidad para comunicarme con equipos interdisciplinarios."
+			taglineClass = 'tagline_about'
+		>
+		</Hero>
 		<main class="wrapper about">
-			<Hero
-				title="Sobre Mí"
-				tagline=""
-			>
-			</Hero>
 
 			<section>
 				<h2 class="section-title">Experiencia Profesional</h2>
@@ -73,7 +74,6 @@ import Hero from '../components/Hero.astro';
 							<li>Manejo de Uhub/Jira , FileZilla y Paquete Adobe.</li>
 						</ul>
 					</div>
-					<hr>
 				</div>
 			</section>
 			<section>
@@ -119,7 +119,7 @@ import Hero from '../components/Hero.astro';
 	.about {
 		display: flex;
 		flex-direction: column;
-		gap: 3.5rem;
+		gap: 2rem;
 	}
 
 	img {
@@ -139,6 +139,7 @@ import Hero from '../components/Hero.astro';
 		grid-column-start: 1;
 		font-size: var(--text-xl);
 		color: var(--gray-0);
+		text-align: left;
 	}
 
 	.content {
@@ -177,6 +178,7 @@ import Hero from '../components/Hero.astro';
 
 	.cta_bottom{
 		align-self: center;
+		margin-top: 40px;
 	}
 
 	.content_experience{
@@ -196,6 +198,10 @@ import Hero from '../components/Hero.astro';
 		font-style: italic;
 	}
 
+	.content_experience:last-child{
+		margin-bottom: 0;
+	}
+
 	.wrapper{
 		padding-inline: 2rem;
 	}
@@ -205,6 +211,7 @@ import Hero from '../components/Hero.astro';
 			display: grid;
 			grid-template-columns: 0.5fr 2fr;
 			padding-inline: 2.5rem;
+			gap: 3.5rem;
 		}
 
 		.about > :global(:first-child) {
@@ -218,6 +225,9 @@ import Hero from '../components/Hero.astro';
 		}
 		.content{
 			padding-inline: 2.5rem;
+		}
+		.section-title{
+			text-align: center;
 		}
 	}
 </style>

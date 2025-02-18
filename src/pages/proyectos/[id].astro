@@ -22,7 +22,7 @@ if (!project) {
 ---
 
 <BaseLayout title={project.title}>
-    <div class="stack gap-20 lg:gap-48">
+    <div class="stack gap-20 lg:gap-30">
         <div class="wrapper stack gap-8 lg:gap-20">
             <header class="hero">
                 <a class="back-link" href="/proyectos/"><Icon icon="arrow-left" /> Proyectos</a>
@@ -41,27 +41,20 @@ if (!project) {
               </header>
         </div>
   </div>
-  <main class="wrapper stack gap-20 lg:gap-48">
+  <main class="wrapper stack gap-20 lg:gap-30">
     <article class="project">
       <img src={project.img_mockup} alt={project.img_alt || project.title} loading="lazy" decoding="async" />
 
-      <!-- <section class="details">
-        <h2>Tecnologías utilizadas</h2>
-        <ul>
-          {project.skills.map(skill => (
-            <li class="skill">{skill}</li>
-          ))}
-        </ul>
-      </section> -->
-
-      <!-- {project.url && (
-        <p>
+      {project.url && (
+        <div class="project_url">
           <a href={project.url} target="_blank" rel="noopener noreferrer">Ver proyecto en línea</a>
-        </p>
-      )} -->
+        </div>
+      )}
     </article>
 
-    <ContactCTA />
+    <div class="cta_bottom">
+			<ContactCTA />
+		</div>
   </main>
 </BaseLayout>
 
@@ -90,7 +83,7 @@ if (!project) {
     }
     .description{
         font-size: var(--text-md);
-        margin: 40px auto;
+        margin: 40px auto 20px auto;
         text-align: left;
     }
     .project{
@@ -104,6 +97,18 @@ if (!project) {
         margin: 0 auto;
     }
 
+    .cta_bottom{
+      align-self: center;
+    }
+
+    .project_url{
+      margin-top: 5%;
+    }
+
+    .project_url a{
+      font-size: var(--text-md);
+    }
+
     @media (min-width: 50em) {
         .skills{
             margin-top: 0;
@@ -111,6 +116,15 @@ if (!project) {
         .project img{
             width: 50%;
             max-width: 50%;
+        }
+        .description{
+          margin: 40px auto;
+        }
+        .project_url{
+          margin-top: 2%;
+        }
+        .project_url a{
+          font-size: var(--text-lg);
         }
     }
 
