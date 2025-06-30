@@ -1,12 +1,18 @@
 ---
 import Icon from './Icon.astro';
+interface Props {
+  lang: string;
+  t: Record<string, any>;
+}
+
+const { lang, t } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
 <footer>
 	<div class="group">
 		<p>
-			Desarrollado con <a href="https://astro.build/">Astro</a>
+			{t?.develop} <a href="https://astro.build/">Astro</a>
 			<Icon icon="rocket-launch" size="1.2em" />
 		</p>
 		<p>&copy; {currentYear} Macarena Sofía Alonso Arias</p>

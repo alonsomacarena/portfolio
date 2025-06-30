@@ -12,26 +12,38 @@ import Grid from "../../components/Grid.astro";
 const sortedProjects = projects.sort(
   (a, b) => b.publishDate.getTime() - a.publishDate.getTime(),
 );
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'es' } },
+    { params: { lang: 'en' } }
+  ];
+}
+
+const lang = Astro.params.lang || 'es';
+const translations = await import(`../../locales/${lang}.json`);
+const t = translations.default;
+
+
 ---
 
-<BaseLayout
-  title="Mis proyectos destacados - Macarena Alonso"
-  description="Mis proyectos más destacados para diferentes clientes"
+<BaseLayout lang={lang} t={t}
+  title={t.projectsFull.title} description={t.projectsFull.tagline}
 >
   <div class="stack gap-10 lg:gap-2">
     <div class="wrapper stack gap-8 lg:gap-20">
       <header class="hero">
         <Hero
-          title="Mis Proyectos"
-          tagline="Aquí hay algunos de mis proyectos más recientes y destacados para diferentes clientes"
+          title={t.projectsFull.title}
+          tagline={t.projectsFull.tagline}
           align="start"
         />
 		<div class="skills-header">
-			<span class="skill-header">React JS</span>
-			<span class="skill-header">HTML</span>
-			<span class="skill-header">CSS</span>
-			<span class="skill-header">Javascript</span>
-			<span class="skill-header">Astro</span>
+			<span class="skill">{t.about.skill[0]}</span>
+            <span class="skill">{t.about.skill[1]}</span>
+            <span class="skill">{t.about.skill[2]}</span>
+            <span class="skill">{t.about.skill[3]}</span>
+            <span class="skill">{t.about.skill[4]}</span>
 		</div>
       </header>
     </div>
@@ -41,14 +53,14 @@ const sortedProjects = projects.sort(
             <Grid variant="offset">
               {sortedProjects.map((project) => (
               <li>
-                <PortfolioPreview project={project} />
+                <PortfolioPreview project={project} lang={lang} t={t}  />
               </li>
               ))}
             </Grid>
           </div>
         </section>
 		<div class="cta_bottom">
-			<ContactCTA />
+			<ContactCTA lang={lang} t={t} />
 		</div>
     </main>
   </div>

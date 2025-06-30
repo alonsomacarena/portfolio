@@ -23,7 +23,7 @@
             "img": "/assets/movistar-argentina/movistar-argentina.png",
             "img_alt": "Movistar Argentina",
             "img_mockup": "/assets/movistar-argentina/movistar-argentina-mockup.png",
-            " skills": [
+            "skills": [
                 "HTML",
                 "CSS",
                 "Javascript"
@@ -208,5 +208,16 @@
     "projectsId": {
         "btnBack": "Proyectos",
         "btnVer": "Ver proyecto en línea"
+    },
+    "contacto": "Contáctame",
+    "develop": "Desarrollado con",
+    "nav": {
+        "inicio": "Inicio",
+        "project": "Proyectos",
+        "about": "Sobre Mí"
+    },
+     "error": {
+        "title": "404 - Página no encontrada",
+        "tagline": "Lo sentimos, la página que estás buscando no existe o ha sido movida."
     }
 }

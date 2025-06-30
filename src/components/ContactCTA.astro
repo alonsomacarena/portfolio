@@ -1,11 +1,17 @@
 ---
 import CallToAction from './CallToAction.astro';
 import Icon from './Icon.astro';
+interface Props {
+  lang: string;
+  t: Record<string, any>;
+}
+
+const { lang, t } = Astro.props;
 ---
 
 <aside>
 	<CallToAction href="mailto:alonsomacarena@gmail.com">
-		Contáctame
+		{t?.contacto}
 		<Icon icon="paper-plane-tilt" size="1.2em" />
 	</CallToAction>
 </aside>

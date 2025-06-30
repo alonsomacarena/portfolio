@@ -10,11 +10,15 @@ interface Props {
     img_alt?: string;
   };
 }
+interface Props {
+  lang: string;
+  t: Record<string, any>;
+}
 
-const { project } = Astro.props;
+const { lang, t, project } = Astro.props;
 ---
 
-<a class="card" href={`/proyectos/${project.id}`}>
+<a class="card" href={`/proyectos/${lang}/${project.id}`}>
   <span class="title">{project.title}</span>
   <div class="skills">
     {project.skills.map((skill) => (

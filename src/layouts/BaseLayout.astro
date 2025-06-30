@@ -1,18 +1,17 @@
 ---
-// Learn about using Astro layouts:
-// https://docs.astro.build/en/core-concepts/layouts/
-
-// Component Imports
+// layouts/BaseLayout.astro
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
-	title?: string | undefined;
-	description?: string | undefined;
+  title?: string;
+  description?: string;
+  lang: string;
+  t: Record<string, any>;
 }
 
-const { title, description } = Astro.props;
+const { title, description, lang, t } = Astro.props;
 ---
 
 <html lang="en">
@@ -21,9 +20,9 @@ const { title, description } = Astro.props;
 	</head>
 	<body>
 		<div class="stack backgrounds">
-			<Nav />
+			<Nav lang={lang} t={t} />
 			<slot />
-			<Footer />
+			<Footer lang={lang} t={t} />
 		</div>
 
 		<script>

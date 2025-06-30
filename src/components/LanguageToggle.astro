@@ -1,0 +1,23 @@
+---
+const lang = Astro.params.lang || 'es';
+const nextLang = lang === 'es' ? 'en' : 'es';
+
+// Obtener la ruta actual y reemplazar el idioma
+let path = Astro.url.pathname;
+const newPath = path.replace(`/${lang}/`, `/${nextLang}/`);
+---
+
+<a href={newPath} class="language-toggle">
+  {lang === 'es' ? 'EN' : 'ES'}
+</a>
+
+
+<style>
+  a{
+    color: var(--gray-200);
+    text-decoration: none;
+    border-radius: 50px;
+    border: 0.5px solid var(--gray-200);
+    padding: 8px;
+  }
+</style>

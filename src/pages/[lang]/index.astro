@@ -1,0 +1,275 @@
+---
+// src/pages/index.astro
+import { getCollection } from 'astro:content';
+import { projects } from '../../data/projects';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import Grid from '../../components/Grid.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import PortfolioPreview from '../../components/PortfolioPreview.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { localizedPath } from '../../utils/localizedPaths';
+
+// Obtener el idioma desde la URL
+const lang = Astro.params.lang || 'es';
+
+// Cargar las traducciones correctas
+const translations = await import(`../../locales/${lang}.json`);
+const t = translations.default;
+
+const featuredProjects = projects
+  .sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime())
+  .slice(0, 4);
+
+// Definir las rutas estáticas
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'es' } },
+    { params: { lang: 'en' } }
+  ];
+}
+---
+
+<BaseLayout lang={lang} t={t}>
+  <div class="stack gap-20 lg:gap-30">
+    <div class="wrapper stack gap-8 lg:gap-20">
+      <header class="hero">
+        <Hero
+          title="Macarena Sofía Alonso Arias"
+          tagline={t.inicio.tagline}
+          align="start"
+        >
+          <div class="skills">
+            <span class="skill">{t.about.skill[0]}</span>
+            <span class="skill">{t.about.skill[1]}</span>
+            <span class="skill">{t.about.skill[2]}</span>
+            <span class="skill">{t.about.skill[3]}</span>
+            <span class="skill">{t.about.skill[4]}</span>
+          </div>
+        </Hero>
+      </header>
+    </div>
+
+    <main class="wrapper stack gap-20 lg:gap20">
+      <section class="section with-background with-cta">
+        <header class="section-header stack gap-2 lg:gap-4">
+          <h3>{t.inicio.projects.title}</h3>
+          <p>{t.inicio.projects.text}</p>
+        </header>
+        <div class="gallery">
+          <Grid variant="offset">
+            {featuredProjects.map((project) => (
+              <li>
+                <PortfolioPreview project={project} lang={lang} t={t}  />
+              </li>
+            ))}
+          </Grid>
+        </div>
+
+        <div class="cta">
+          <CallToAction href={`/${lang}/proyectos/`}>
+            {t.inicio.btnVer}
+            <Icon icon="arrow-right" size="1.2em" />
+          </CallToAction>
+        </div>
+      </section>
+      <div class="cta_bottom">
+        <ContactCTA lang={lang} t={t} />
+      </div>
+    </main>
+  </div>
+</BaseLayout>
+
+
+<style>
+	.hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+		width: 95%;
+		margin: auto;
+	}
+
+	.roles {
+		display: none;
+	}
+
+	.hero img {
+		aspect-ratio: 5 / 4;
+		object-fit: cover;
+		object-position: top;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	.skills{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        list-style: none;
+        margin-top: 10px;
+    }
+    .skill{
+        font-size: var(--text-base);
+        background: var(--gradient-accent);
+        color: var(--accent-text-over);
+        padding: 0.5rem 1rem;
+        border-radius: 999rem;
+        transition: color var(--theme-transition), background-color var(--theme-transition);
+    }
+
+	@media (min-width: 50em) {
+		.hero {
+			display: grid;
+			grid-template-columns: 6fr 4fr;
+			padding-inline: 2.5rem 0;
+			gap: 3.75rem;
+		}
+
+		.roles {
+			margin-top: 0.5rem;
+			display: flex;
+			gap: 0.5rem;
+		}
+
+		.hero img {
+			aspect-ratio: 3 / 4;
+			border-radius: 4.5rem;
+			object-fit: cover;
+		}
+
+		.skills{
+			justify-content: flex-start;
+		}
+	}
+
+	/* ====================================================== */
+
+	.section {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.with-background {
+		position: relative;
+	}
+
+	.with-background::before {
+		--hero-bg: var(--bg-image-subtle-2);
+
+		content: '';
+		position: absolute;
+		pointer-events: none;
+		left: 50%;
+		width: 100vw;
+		aspect-ratio: calc(2.25 / var(--bg-scale));
+		top: 0;
+		transform: translateY(-75%) translateX(-50%);
+		background:
+			url('/assets/backgrounds/noise.png') top center/220px repeat,
+			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+			var(--gray-999);
+		background-blend-mode: overlay, normal, normal, normal;
+		mix-blend-mode: var(--bg-blend-mode);
+		z-index: -1;
+	}
+
+	.with-background.bg-variant::before {
+		--hero-bg: var(--bg-image-subtle-1);
+	}
+
+	.section-header {
+		justify-self: center;
+		text-align: center;
+		max-width: 50ch;
+		font-size: var(--text-md);
+		color: var(--gray-300);
+	}
+
+	.section-header h3 {
+		font-size: var(--text-xl);
+	}
+
+	.section li{
+		margin: auto;
+		width: 95%;
+	}
+
+	.wrapper{
+		padding-inline: 0;
+	}
+
+	.cta_bottom{
+		align-self: center;
+	}
+
+	.cta{
+		width: 55%;
+		margin: auto;
+	}
+
+	@media (min-width: 50em) {
+		.section {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+			gap: 5rem;
+			padding-inline: 2.5rem;
+		}
+
+		.section.with-cta {
+			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+		}
+
+		.section-header {
+			grid-area: header;
+			font-size: var(--text-lg);
+		}
+
+		.section-header h3 {
+			font-size: var(--text-4xl);
+		}
+
+		.with-cta .section-header {
+			justify-self: flex-start;
+			text-align: left;
+			padding-left: 1.5rem;
+		}
+
+		.gallery {
+			grid-area: gallery;
+		}
+
+		.cta {
+			grid-area: cta;
+			margin-right: 1rem;
+			width: 100%;
+		}
+	}
+
+	/* ====================================================== */
+
+	.mention-card {
+		display: flex;
+		height: 7rem;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		border: 1px solid var(--gray-800);
+		border-radius: 1.5rem;
+		color: var(--gray-300);
+		background: var(--gradient-subtle);
+		box-shadow: var(--shadow-sm);
+	}
+
+	@media (min-width: 50em) {
+		.mention-card {
+			border-radius: 1.5rem;
+			height: 9.5rem;
+		}
+	}
+</style>

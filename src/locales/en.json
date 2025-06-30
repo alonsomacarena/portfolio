@@ -1,0 +1,223 @@
+{
+    "projects": [
+        {
+            "id": "canal-hispanidad",
+            "title": "Canal Hispanidad",
+            "description": "Canal Hispanidad is a platform dedicated to the purchase and rental of documentaries and films produced by Lopez-Li Film. The project was developed using React, taking advantage of its reusable component system to ensure a smooth user experience. Additionally, technologies like VideoJs were implemented for video playback, Stripe for payment processing, and MedusaJs as a backend solution to manage products and payments. The platform is optimized to provide intuitive navigation and a fast purchasing process.",
+            "img": "/assets/hispanidad/hispanidad.png",
+            "img_alt": "Canal Hispanidad",
+            "img_mockup": "/assets/hispanidad/hispanidad-mockup.png",
+            "skills": [
+                "ReactJs",
+                "VideoJs",
+                "Stripe",
+                "MedusaJs"
+            ],
+            "url": "https://canalhispanidad.com/",
+            "publishDate": "new Date('2024-11-11')"
+        },
+        {
+            "id": "movistar-argentina",
+            "title": "Movistar Argentina",
+            "description": "For Movistar Argentina, I created a website aimed at capturing leads and generating sales for internet and mobile services. I used HTML, CSS, and JavaScript to develop a design optimized for conversion. The forms are easy to complete, and the experience is designed so that users can quickly find what they're looking for.",
+            "img": "/assets/movistar-argentina/movistar-argentina.png",
+            "img_alt": "Movistar Argentina",
+            "img_mockup": "/assets/movistar-argentina/movistar-argentina-mockup.png",
+            "skills": [
+                "HTML",
+                "CSS",
+                "Javascript"
+            ],
+            "url": "https://movistarinternet.ar/p/td",
+            "publishDate": "new Date('2024-10-10')"
+        },
+        {
+            "id": "mapa-de-aguas",
+            "title": "Mapa de Aguas",
+            "description": "Mapa de Aguas is an informational site created for Javier Domínguez Angulo, a writer and landscape designer. The site consists of several pages where users can learn about his career, explore his projects, and access information about his philosophy and work. The site is developed with HTML, CSS, and JavaScript, with a contact form implemented in PHP to facilitate direct communication.",
+            "img": "/assets/mapa/mapa.png",
+            "img_alt": "Mapa de Aguas",
+            "img_mockup": "/assets/mapa/mapa-mockup.png",
+            "skills": [
+                "HTML",
+                "CSS",
+                "Javascript",
+                "PHP"
+            ],
+            "url": "https://www.mapadeaguas.com/",
+            "publishDate": "new Date('2024-09-09')"
+        },
+        {
+            "id": "claro-costa-rica",
+            "title": "Claro Costa Rica",
+            "description": "In this project for Claro Costa Rica, I developed a website focused on selling mobile plans and internet services. Through various pages, users can compare available options, get details about the plans, and submit their data through forms. The site was built using HTML, CSS, and JavaScript, with a clean design that facilitates navigation and conversion of users into leads.",
+            "img": "/assets/claro/claro.png",
+            "img_alt": "Claro Costa Rica",
+            "img_mockup": "/assets/claro/claro-mockup.png",
+            "skills": [
+                "HTML",
+                "CSS",
+                "Javascript"
+            ],
+            "url": "https://claroplanes.cr/p/preview",
+            "publishDate": "new Date('2024-08-08')"
+        },
+        {
+            "id": "movistar-chile",
+            "title": "Movistar Chile",
+            "description": "The website for Movistar Chile is designed to capture leads and promote the sale of mobile plans and home services. The site includes several pages with plan comparisons, registration forms, and clear calls to action to facilitate conversion. I used HTML, CSS, and JavaScript to develop a fast and functional site, offering a clear and accessible interface on both mobile devices and desktops.",
+            "img": "/assets/movistar-chile/movistar-chile.png",
+            "img_alt": "Movistar Chile",
+            "img_mockup": "/assets/movistar-chile/movistar-chile-mockup.png",
+            "skills": [
+                "HTML",
+                "CSS",
+                "Javascript"
+            ],
+            "url": "https://movistar-planes.cl/p/movil2",
+            "publishDate": "new Date('2024-07-07')"
+        },
+        {
+            "id": "wow-peru",
+            "title": "Wow Perú",
+            "description": "The website for Wow Perú is aimed at capturing leads for mobile plans and internet services. Users can explore the available plans and submit their data through forms. I used HTML, CSS, and JavaScript to develop a site that makes navigation and data submission easy.",
+            "img": "/assets/wow-peru/wow-peru.png",
+            "img_alt": "Wow Perú",
+            "img_mockup": "/assets/wow-peru/wow-peru-mockup.png",
+            "skills": [
+                "HTML",
+                "CSS",
+                "Javascript"
+            ],
+            "url": "https://wowplanes.pe/p/td",
+            "publishDate": "new Date('2024-06-06')"
+        }
+    ],
+    "about": {
+        "title": "About Me",
+        "tagline": "I am a frontend developer with a passion for interface design and user experience (UX/UI). With a solid foundation in HTML, CSS, JavaScript, and experience in React JS, I consider myself detail-oriented, creative, and with a strong ability to communicate with interdisciplinary teams.",
+        "experience": "Work Experience",
+        "education": "Education",
+        "skills": "Skills",
+        "experiences": [
+            {
+                "title": "Frontend Developer",
+                "company": "Freelance, Spain",
+                "duration": "August 2024 - Now",
+                "details": [
+                    "Development of a streaming and movie purchase/rental website for Lopez-Li Films using ReactJs with Vite, Redux, and React-Router-Dom.",
+                    "Integration with the MedusaJs API for ecommerce and integration with the Stripe API for payments.",
+                    "Use of VideoJs for movie playback.",
+                    "Handling of Axios for API Requests and Jwt-Decode.",
+                    "Handling of EsLint in VSCode for debug."
+                ]
+            },
+            {
+                "title": "Frontend Developer",
+                "company": "Convertia, Spain",
+                "duration": "August 2022 - Now",
+                "details": [
+                    "Development of websites in HTML, CSS and Javascript.",
+                    "Development of Emails in HTML.",
+                    "Development of SEO Content for different websites.",
+                    "Optimizations and updates for already developed websites.",
+                    "Handling of GIT and CRM Platform."
+                ]
+            },
+            {
+                "title": "Frontend Developer",
+                "company": "Wunderman Thompson, Argentina",
+                "duration": "January 2021 - May 2022",
+                "details": [
+                    "Development and Production of Animated Banners in HTML, CSS y JS.",
+                    "Development and Production of Animated Banners in Adobe Animate in different sizes following client’s request.",
+                    "Review and Update of designs in Adobe Photoshop.",
+                    "Review and Update of Emails Comps in Adobe Photoshop and Sketch.",
+                    "Handling of Uhub/Jira , FileZilla and Adobe Software."
+                ]
+            },
+            {
+                "title": "Tutor Web Development Course",
+                "company": "Coderhouse, Argentina",
+                "duration": "October 2020 - February 2021",
+                "details": [
+                    "Correction of daily exercises, challenges and final work.",
+                    "Support, monitoring and resolution of student inquiries.",
+                    "Research of additional material and Development of examples per class."
+                ]
+            },
+            {
+                "title": "Web Designer",
+                "company": "Wunderman Thompson, Argentina",
+                "duration": "October 2020 - December 2022",
+                "details": [
+                    "Development of Banners in Adobe Illustrator following the client’s request.",
+                    "Animation and Production of Banners in Adobe Animate.",
+                    "Review and Update of Static Banners in Illustrator and Animated Banners in Animate.",
+                    "Handling of Uhub/Jira , FileZilla and Adobe Software."
+                ]
+            }
+        ],
+        "educations": [
+            {
+                "title": "Course SEO (Search Engine Optimization) in Google",
+                "place": "Udemy (2023)"
+            },
+            {
+                "title": "Couse App Development React Native",
+                "place": "Coderhouse (2021)"
+            },
+            {
+                "title": "Course React JS",
+                "place": "Coderhouse (2020)"
+            },
+            {
+                "title": "Course Javascript + JQuery",
+                "place": "Coderhouse (2020)"
+            },
+            {
+                "title": "Course Web Development (HTML5, CSS, SASS, Bootstrap)",
+                "place": "Coderhouse (2020)"
+            }
+        ],
+        "skill": [
+            "React JS",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Astro",
+            "SASS",
+            "Adobe Photoshop",
+            "Adobe Illustrator",
+            "Adobe XD",
+            "Figma"
+        ]
+    },
+    "inicio": {
+        "tagline": "Frontend Developer - Madrid, Spain",
+        "projects": {
+            "title": "Selected Work",
+            "text": "Here is some of my recent featured work for different clients"
+        },
+        "btnVer": "View all"
+    },
+    "projectsFull": {
+        "title": "My Work",
+        "tagline": "Here is some of my recent featured work for different clients"
+    },
+    "projectsId": {
+        "btnBack": "My Workk",
+        "btnVer": "Go to website"
+    },
+    "contacto": "Send me a message",
+    "develop": "Developed with",
+    "nav": {
+        "inicio": "Home",
+        "project": "My Work",
+        "about": "About Me"
+    },
+    "error": {
+        "title": "404 - Page Not Found",
+        "tagline": "Sorry, the page you're looking for doesn't exist or may have been moved."
+    }
+}
