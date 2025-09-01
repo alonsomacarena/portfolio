@@ -1,19 +1,36 @@
 ---
 const lang = Astro.params.lang || 'es';
 const nextLang = lang === 'es' ? 'en' : 'es';
+const path = Astro.url.pathname;
 
-// Obtener la ruta actual y reemplazar el idioma
-let path = Astro.url.pathname;
-const newPath = path.replace(`/${lang}/`, `/${nextLang}/`);
+// Rutas equivalentes entre idiomas
+const routeMap = {
+  'es': {
+    '': '',
+    'proyectos': 'work',
+    'sobre-mi': 'about-me'
+  },
+  'en': {
+    '': '',
+    'work': 'proyectos',
+    'about-me': 'sobre-mi'
+  }
+};
+
+// Extraer el segmento luego del idioma
+const segments = path.split('/').filter(Boolean); 
+const currentSlug = segments[1] || '';
+const translatedSlug = routeMap[lang][currentSlug] || '';
+
+const newPath = `/${nextLang}/${translatedSlug}`;
 ---
 
 <a href={newPath} class="language-toggle">
   {lang === 'es' ? 'EN' : 'ES'}
 </a>
 
-
 <style>
-  a{
+  a {
     color: var(--gray-200);
     text-decoration: none;
     border-radius: 50px;

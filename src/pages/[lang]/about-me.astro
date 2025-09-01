@@ -1,5 +1,5 @@
 ---
-import ProjectPage from "../../components/ProjectPage.astro";
+import AboutPage from "../../components/AboutPage.astro";
 import es from "../../locales/es.json";
 import en from "../../locales/en.json";
 
@@ -11,4 +11,4 @@ const lang = Astro.params.lang;
 const t = lang === "es" ? es : en;
 ---
 
-<ProjectPage lang={lang} t={t} />
+<AboutPage lang={lang} t={t} />

@@ -3,22 +3,20 @@ import Icon from './Icon.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import type { iconPaths } from './IconPaths';
 import LanguageToggle from './LanguageToggle.astro';
-import { localizedPath } from '../utils/localizedPaths';
-
+import { getAbsolutePathForNav } from '../utils/localizedPaths.js';
 interface Props {
   lang: string;
   t: Record<string, any>;
 }
 
 const { lang, t } = Astro.props;
-/** Main menu items */
-const textLinks: { label: string; href: string }[] = [
-  { label: t?.nav.inicio, href: `/${lang}/` },
-  { label: t?.nav.project, href: `/${lang}/proyectos/` },
-  { label: t?.nav.about, href: `/${lang}/sobre-mi/` },
+
+const textLinks = [
+  { label: t?.nav.inicio, href: getAbsolutePathForNav('inicio', lang) },
+  { label: t?.nav.project, href: getAbsolutePathForNav('project', lang) },
+  { label: t?.nav.about, href: getAbsolutePathForNav('aboutPage', lang) }
 ];
 
-/** Test if a link is pointing to the current page. */
 const isCurrentPage = (href: string) => {
 	let pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 	if (pathname.at(0) !== '/') pathname = '/' + pathname;

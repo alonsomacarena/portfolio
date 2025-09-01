@@ -1,6 +1,4 @@
 ---
-// src/pages/index.astro
-import { getCollection } from 'astro:content';
 import { projects } from '../../data/projects';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CallToAction from '../../components/CallToAction.astro';
@@ -9,7 +7,6 @@ import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
 import PortfolioPreview from '../../components/PortfolioPreview.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
-import { localizedPath } from '../../utils/localizedPaths';
 
 // Obtener el idioma desde la URL
 const lang = Astro.params.lang || 'es';
@@ -68,7 +65,7 @@ export function getStaticPaths() {
         </div>
 
         <div class="cta">
-          <CallToAction href={`/${lang}/proyectos/`}>
+          <CallToAction href={`/${lang}/${lang === 'en' ? 'work' : 'proyectos'}/`}>
             {t.inicio.btnVer}
             <Icon icon="arrow-right" size="1.2em" />
           </CallToAction>

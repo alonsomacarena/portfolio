@@ -1,55 +1,50 @@
 ---
-// src/pages/proyectos.astro
-import { projects } from "../../data/projects";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+import Hero from "../components/Hero.astro";
+import Grid from "../components/Grid.astro";
 
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import ContactCTA from "../../components/ContactCTA.astro";
-import PortfolioPreview from "../../components/PortfolioPreview.astro";
-import Hero from "../../components/Hero.astro";
-import Grid from "../../components/Grid.astro";
+const { lang, t } = Astro.props;
 
-// Ordenar los proyectos por fecha de publicación (de más reciente a más antiguo)
-const sortedProjects = projects.sort(
-  (a, b) => b.publishDate.getTime() - a.publishDate.getTime(),
+// Ordenar los proyectos por fecha de publicación
+const sortedProjects = [...t.projects].sort(
+  (a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
 );
 ---
-
-<BaseLayout
-  title="Mis proyectos destacados - Macarena Alonso"
-  description="Mis proyectos más destacados para diferentes clientes"
+<BaseLayout lang={lang} t={t}
+  title={t.projectsFull.title} description={t.projectsFull.tagline}
 >
   <div class="stack gap-10 lg:gap-2">
     <div class="wrapper stack gap-8 lg:gap-20">
       <header class="hero">
         <Hero
-          title="Mis Proyectos"
-          tagline="Aquí hay algunos de mis proyectos más recientes y destacados para diferentes clientes"
+          title={t.projectsFull.title}
+          tagline={t.projectsFull.tagline}
           align="start"
         />
-		<div class="skills-header">
-			<span class="skill-header">React JS</span>
-			<span class="skill-header">HTML</span>
-			<span class="skill-header">CSS</span>
-			<span class="skill-header">Javascript</span>
-			<span class="skill-header">Astro</span>
-		</div>
+        <div class="skills-header">
+          {t.about.skill.map((skill) => (
+            <span class="skill-header">{skill}</span>
+          ))}
+        </div>
       </header>
     </div>
-      <main class="wrapper stack gap-20">
-        <section class="section with-background with-cta">
-          <div class="gallery">
-            <Grid variant="offset">
-              {sortedProjects.map((project) => (
+    <main class="wrapper stack gap-20">
+      <section class="section with-background with-cta">
+        <div class="gallery">
+          <Grid variant="offset">
+            {sortedProjects.map((project) => (
               <li>
-                <PortfolioPreview project={project} />
+                <PortfolioPreview project={project} lang={lang} t={t} />
               </li>
-              ))}
-            </Grid>
-          </div>
-        </section>
-		<div class="cta_bottom">
-			<ContactCTA />
-		</div>
+            ))}
+          </Grid>
+        </div>
+      </section>
+      <div class="cta_bottom">
+        <ContactCTA lang={lang} t={t} />
+      </div>
     </main>
   </div>
 </BaseLayout>
@@ -111,7 +106,7 @@ const sortedProjects = projects.sort(
 
 	.section li{
 		margin: auto;
-		width: 95%;
+		width: 98%;
 	}
 
 	.with-background {
@@ -239,4 +234,3 @@ const sortedProjects = projects.sort(
 		}
 	}
 </style>
-

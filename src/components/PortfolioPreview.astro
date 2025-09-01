@@ -1,5 +1,5 @@
 ---
-//import type { CollectionEntry } from 'astro:content';
+import { getProjectDetailPath } from '../utils/localizedPaths.js'
 
 interface Props {
   project: {
@@ -18,7 +18,7 @@ interface Props {
 const { lang, t, project } = Astro.props;
 ---
 
-<a class="card" href={`/proyectos/${lang}/${project.id}`}>
+<a class="card" href={getProjectDetailPath(project.id, lang)}>
   <span class="title">{project.title}</span>
   <div class="skills">
     {project.skills.map((skill) => (

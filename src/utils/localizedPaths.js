@@ -1,22 +1,47 @@
-export const routeTranslations = {
-  proyectos: {
-    es: 'proyectos',
-    en: 'work',
+const routeMap = {
+  es: {
+    '': '',
+    'proyectos': 'work',
+    'sobre-mi': 'about-me'
   },
-   about: {
-    es: 'sobre-mi',
-    en: 'about-me',
-  },
+  en: {
+    '': '',
+    'work': 'proyectos',
+    'about-me': 'sobre-mi'
+  }
 };
 
-// Inverso: busca la clave original desde la URL
-export function getRouteKeyFromSlug(slug, lang) {
-  return Object.entries(routeTranslations).find(
-    ([, value]) => value[lang] === slug
-  )?.[0];
+export function getLocalizedPath(currentPath, currentLang) {
+  const nextLang = currentLang === 'es' ? 'en' : 'es';
+  const segments = currentPath.split('/').filter(Boolean);
+  const currentSlug = segments[1] || '';
+  const projectId = segments[2]
+
+  // Buscar la clave en el idioma actual que coincida con el slug actual
+  const key = Object.entries(routeMap[currentLang]).find(
+    ([k, v]) => v === currentSlug || k === currentSlug
+  )?.[0] || '';
+
+  // Luego traducir esa clave al idioma destino
+  const translatedSlug = routeMap[nextLang][key] || '';
+
+  return `/${nextLang}/${translatedSlug}${projectId ? `/${projectId}` : ''}`;;
 }
 
-// Genera la URL traducida
-export function localizedPath(lang, key) {
-  return `/${lang}/${routeTranslations[key]?.[lang] || key}`;
+
+
+export function getAbsolutePathForNav(slugKey, lang) {
+  const map = {
+    'inicio': '',
+    'project': lang === 'es' ? 'proyectos' : 'work',
+    'aboutPage': lang === 'es' ? 'sobre-mi' : 'about-me'
+  };
+  return `/${lang}/${map[slugKey] || ''}`;
 }
+
+
+export function getProjectDetailPath(projectId, lang) {
+  const baseSlug = lang === 'es' ? 'proyectos' : 'work';
+  return `/${lang}/${baseSlug}/${projectId}`;
+}
+
